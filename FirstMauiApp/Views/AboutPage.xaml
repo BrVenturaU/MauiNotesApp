@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FirstMauiApp.Views.AboutPage"
+             xmlns:models="clr-namespace:FirstMauiApp.Models"
+             Title="About">
+    <ContentPage.BindingContext>
+        <models:About />
+    </ContentPage.BindingContext>
+    <FlexLayout 
+        Direction="Column"
+        JustifyContent="SpaceBetween"
+        Margin="10">
+        <HorizontalStackLayout 
+            Spacing="15" 
+            HorizontalOptions="Center">
+            <Image 
+                Source="dotnet_bot.png"
+                SemanticProperties.Description="Hello from the bot!"
+                HeightRequest="128" />
+            <Label FontSize="32" FontAttributes="Bold" Text="{Binding Title}" VerticalOptions="Center" />
+            <Label FontSize="32" Text="{Binding Version}" VerticalOptions="Center" />
+        </HorizontalStackLayout>
+        <VerticalStackLayout 
+            Margin="0,20,10,20"
+            Spacing="10">
+            <Label Text="{Binding Message}" HorizontalOptions="Center" />
+            <Button Text="Learn more..." Clicked="LearnMore_Clicked" VerticalOptions="EndAndExpand" />
+        </VerticalStackLayout>
+    </FlexLayout>
+</ContentPage>
